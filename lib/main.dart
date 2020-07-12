@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
         //primarySwatch: Colors.pink[50],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Notes'),
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(child: MyHomePage(title: 'Notes')),
     );
   }
 }
@@ -34,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> _widgetOptions = <Widget>[
     Container(
       color: Colors.orange[50],
+      child: Center(child: Text('home')),
     ),
     Container(
       color: Colors.orange[50],
@@ -51,33 +53,64 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: Colors.deepOrangeAccent[100],
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text('Home'),
+    return DefaultTabController(
+      length: 3,
+      child: SafeArea(
+        child: Scaffold
+        (
+          appBar: TabBar
+          (
+            tabs: 
+            [
+              Tab(icon: Icon(Icons.chrome_reader_mode)),
+              Tab(icon: Icon(Icons.arrow_drop_down_circle)),
+              Tab(icon: Icon(Icons.person_outline)),
+            ],
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.teal[300],
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorPadding: EdgeInsets.all(3.0),
+            indicatorColor: Colors.white,
+            labelPadding: EdgeInsets.all(3.0),
+          ),
+          backgroundColor: Colors.teal[900],
+          /*title: Center
+          (
+            child: Text
+            (
+              'Notes',
+              style: TextStyle(color: Colors.black),
+            )
+          ),*/
+          
+          body: Container
+          (
+            //height: MediaQuery.of(context).size.height*0.9,
+            padding: EdgeInsets.only(top: 50),
+            child: TabBarView
+            (
+              children: 
+              [
+                Container
+                (
+                  child: Icon(Icons.directions_car),
+                  color: Colors.teal[50],
+                ),
+                Container
+                (
+                  child: Icon(Icons.all_out),
+                  color: Colors.teal[50],
+                ),
+                Container
+                (
+                  child: Icon(Icons.android),
+                  color: Colors.teal[50],
+                ),
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.business),
-              title: Text('Business'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.school),
-              title: Text('School'),
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.deepOrangeAccent,
-          onTap: _onItemTapped,
+          ),
         ),
+      ),
     );
   }
 }
