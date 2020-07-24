@@ -58,20 +58,23 @@ class _MyHomePageState extends State<MyHomePage> {
       child: SafeArea(
         child: Scaffold
         (
-          appBar: TabBar
-          (
-            tabs: 
-            [
-              Tab(icon: Icon(Icons.chrome_reader_mode)),
-              Tab(icon: Icon(Icons.arrow_drop_down_circle)),
-              Tab(icon: Icon(Icons.person_outline)),
-            ],
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.teal[300],
-            indicatorSize: TabBarIndicatorSize.label,
-            indicatorPadding: EdgeInsets.all(3.0),
-            indicatorColor: Colors.white,
-            labelPadding: EdgeInsets.all(3.0),
+          appBar: AppBar(
+            backgroundColor: Colors.pink[300],
+            title: TabBar
+            (
+              tabs: 
+              [
+                Tab(icon: Icon(Icons.chrome_reader_mode)),
+                Tab(icon: Icon(Icons.arrow_drop_down_circle)),
+                Tab(icon: Icon(Icons.person_outline)),
+              ],
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.pink[200],
+              indicatorSize: TabBarIndicatorSize.label,
+              indicatorPadding: EdgeInsets.all(3.0),
+              indicatorColor: Colors.white,
+              labelPadding: EdgeInsets.all(3.0),
+            ),
           ),
           backgroundColor: Colors.teal[900],
           /*title: Center
@@ -86,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
           body: Container
           (
             //height: MediaQuery.of(context).size.height*0.9,
-            padding: EdgeInsets.only(top: 50),
+            //padding: EdgeInsets.only(top: 50),
             child: TabBarView
             (
               children: 
