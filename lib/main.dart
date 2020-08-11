@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes/models/global.dart';
 
 void main() {
   runApp(MyApp());
@@ -59,24 +61,24 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Scaffold
         (
           appBar: AppBar(
-            backgroundColor: Colors.pink[300],
+            elevation: 0.0,
+            backgroundColor: black,
             title: TabBar
             (
               tabs: 
               [
-                Tab(icon: Icon(Icons.chrome_reader_mode)),
-                Tab(icon: Icon(Icons.arrow_drop_down_circle)),
-                Tab(icon: Icon(Icons.person_outline)),
+                Tab(icon: Icon(FontAwesomeIcons.anchor)),
+                Tab(icon: Icon(FontAwesomeIcons.rev)),
+                Tab(icon: Icon(FontAwesomeIcons.themeisle)),
               ],
-              labelColor: Colors.white,
+              labelColor: yellow,
               unselectedLabelColor: Colors.pink[200],
               indicatorSize: TabBarIndicatorSize.label,
               indicatorPadding: EdgeInsets.all(3.0),
-              indicatorColor: Colors.white,
+              indicatorColor: yellow,
               labelPadding: EdgeInsets.all(3.0),
             ),
           ),
-          backgroundColor: Colors.teal[900],
           /*title: Center
           (
             child: Text
@@ -85,32 +87,68 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(color: Colors.black),
             )
           ),*/
-          
-          body: Container
-          (
-            //height: MediaQuery.of(context).size.height*0.9,
-            //padding: EdgeInsets.only(top: 50),
-            child: TabBarView
-            (
-              children: 
-              [
-                Container
+          body: Stack(
+            children: <Widget>
+            [
+              TabBarView
+              (
+                children: 
+                [
+                  Container
+                  (
+                    color: yellow,
+                  ),
+                  Container
+                  (
+                    color: yellow,
+                  ),
+                  Container
+                  (
+                    color: yellow,
+                  ),
+                ],
+              ),
+              Container
+              (
+                padding: EdgeInsets.only(left: 50),
+                height: 160,
+                decoration: BoxDecoration
                 (
-                  child: Icon(Icons.directions_car),
-                  color: Colors.teal[50],
+                  color: black,
+                  borderRadius: BorderRadius.only
+                  (
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50)
+                  )
                 ),
-                Container
+                child: Row
                 (
-                  child: Icon(Icons.all_out),
-                  color: Colors.teal[50],
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>
+                  [
+                    Text
+                    (
+                      "Intray",
+                      style: intray,
+                    ),
+                    Container()
+                  ],
                 ),
-                Container
+              ),
+              Container(
+                height: 80,
+                width: 80,
+                margin: EdgeInsets.only(top: 120, left: MediaQuery.of(context).size.width*0.5-40),
+                child: FloatingActionButton
                 (
-                  child: Icon(Icons.android),
-                  color: Colors.teal[50],
+                  onPressed: null,
+                  child: Icon(Icons.add, size: 70, color: yellow,),
+                  backgroundColor: purple,
                 ),
-              ],
-            ),
+              )
+            ]
+              //height: MediaQuery.of(context).size.height*0.9,
+              //padding: EdgeInsets.only(top: 50),
           ),
         ),
       ),
