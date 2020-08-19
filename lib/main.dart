@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes/UI/Intray/intray.dart';
 import 'package:notes/models/global.dart';
 
 void main() {
@@ -62,20 +63,27 @@ class _MyHomePageState extends State<MyHomePage> {
         (
           appBar: AppBar(
             elevation: 0.0,
-            backgroundColor: black,
+            backgroundColor: white,
             title: TabBar
             (
               tabs: 
               [
-                Tab(icon: Icon(FontAwesomeIcons.anchor)),
+                Tab
+                (
+                  icon: Icon
+                  (
+                    FontAwesomeIcons.anchor
+                  ),
+                  //child: Intray(),
+                ),
                 Tab(icon: Icon(FontAwesomeIcons.rev)),
                 Tab(icon: Icon(FontAwesomeIcons.themeisle)),
               ],
-              labelColor: yellow,
+              labelColor: red,
               unselectedLabelColor: Colors.pink[200],
               indicatorSize: TabBarIndicatorSize.label,
               indicatorPadding: EdgeInsets.all(3.0),
-              indicatorColor: yellow,
+              indicatorColor: red,
               labelPadding: EdgeInsets.all(3.0),
             ),
           ),
@@ -94,17 +102,14 @@ class _MyHomePageState extends State<MyHomePage> {
               (
                 children: 
                 [
+                  Intray(),
                   Container
                   (
-                    color: yellow,
+                    color: darkgrey,
                   ),
                   Container
                   (
-                    color: yellow,
-                  ),
-                  Container
-                  (
-                    color: yellow,
+                    color: red,
                   ),
                 ],
               ),
@@ -114,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 160,
                 decoration: BoxDecoration
                 (
-                  color: black,
+                  color: white,
                   borderRadius: BorderRadius.only
                   (
                     bottomLeft: Radius.circular(50),
@@ -142,8 +147,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: FloatingActionButton
                 (
                   onPressed: null,
-                  child: Icon(Icons.add, size: 70, color: yellow,),
-                  backgroundColor: purple,
+                  child: Icon(Icons.add, size: 70, color: white,),
+                  backgroundColor: red,
                 ),
               )
             ]
