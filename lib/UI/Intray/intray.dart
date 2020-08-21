@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes/models/global.dart';
+import 'package:notes/models/widgets/intraycard.dart';
 
 class Intray extends StatefulWidget {
   @override
@@ -19,8 +20,12 @@ class _IntrayState extends State<Intray> {
   }
 
   List<Widget> getList() {
-    return 
-    [
-    ];
+    List<IntrayTodo> list = [];
+    for (int i = 0; i < 10; i++) {
+      list.add(IntrayTodo(title: 'Title',));
+    }
+    return list;
   }
+
+  Widget getTODOwid() {}
 }
