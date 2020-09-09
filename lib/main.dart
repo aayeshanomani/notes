@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         //primarySwatch: Colors.pink[50],
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        canvasColor: Colors.transparent
       ),
       debugShowCheckedModeBanner: false,
       home: SafeArea(child: MyHomePage(title: 'Notes')),
@@ -79,11 +80,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 Tab(icon: Icon(FontAwesomeIcons.rev)),
                 Tab(icon: Icon(FontAwesomeIcons.themeisle)),
               ],
-              labelColor: red,
+              labelColor: darkgrey,
               unselectedLabelColor: Colors.pink[200],
               indicatorSize: TabBarIndicatorSize.label,
               indicatorPadding: EdgeInsets.all(3.0),
-              indicatorColor: red,
+              indicatorColor: darkgrey,
               labelPadding: EdgeInsets.all(3.0),
             ),
           ),

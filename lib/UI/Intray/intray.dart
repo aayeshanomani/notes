@@ -8,11 +8,13 @@ class Intray extends StatefulWidget {
 }
 
 class _IntrayState extends State<Intray> {
+  List<Container> list = [];
   @override
   Widget build(BuildContext context) {
     return Container(
       color: darkgrey,
-      child: ListView(
+      child: ReorderableListView(
+        onReorder: _onReorder,
         children: getList(),
         padding: EdgeInsets.only(top: 300),
       ),
@@ -20,12 +22,27 @@ class _IntrayState extends State<Intray> {
   }
 
   List<Widget> getList() {
-    List<IntrayTodo> list = [];
     for (int i = 0; i < 10; i++) {
-      list.add(IntrayTodo(title: 'Title',));
+      list.add(Container(
+      key: Key((i+1).toString()),
+      color: Colors.transparent,
+        child: IntrayTodo(
+          title: (i+1).toString(),
+        )
+      ));
     }
     return list;
   }
 
   Widget getTODOwid() {}
+
+  void _onReorder(int oldIndex, int newIndex) {
+    setState(() {
+      if (newIndex > oldIndex) {
+        newIndex -= 1;
+      }
+      final Container item = list.removeAt(oldIndex);
+      list.insert(newIndex, item);
+    });
+  }
 }
