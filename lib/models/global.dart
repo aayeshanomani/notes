@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Color red = Color(0xffAFAFDC);
-Color darkgrey = Color(0xff110B11);
+Color darkgrey = Color(0xff424B54);
 Color white = Color(0xffffffff);
 
 TextStyle intray = TextStyle(

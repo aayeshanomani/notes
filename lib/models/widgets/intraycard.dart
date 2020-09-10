@@ -23,7 +23,7 @@ class _IntrayTodoState extends State<IntrayTodo> {
           borderRadius: BorderRadius.all(Radius.circular(16)),
           boxShadow: [
             BoxShadow(
-              color: white.withOpacity(0.5),
+              color: Color(0xffE1CE7A).withOpacity(0.3),
               blurRadius: 10,
             )
           ]),
